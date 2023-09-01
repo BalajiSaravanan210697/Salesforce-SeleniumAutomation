@@ -3,9 +3,21 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.selenium.Salesforce.TC001_CreatNewCase"/>
-      <class name="com.selenium.Salesforce.TC003_DeleteCase"/>
-      <class name="com.selenium.Salesforce.TC004_CreateCaseWithoutMandatoryFields"/>
+      <class name="com.selenium.worktypegroup.WorkTypeGroupSortOrder"/>
+      <class name="com.selenium.account.TC002_EditAccounts"/>
+      <class name="com.selenium.Case.TC003_DeleteCase"/>
+      <class name="com.selenium.Case.TC002_EditCase"/>
+      <class name="com.selenium.account.TC001_CreateAccount"/>
+      <class name="com.selenium.worktype.CreateNewWorkType"/>
+      <class name="com.selenium.worktypegroup.DeleteWorkTypeGroups"/>
+      <class name="com.selenium.worktypegroup.EditWorkTypeGroups"/>
+      <class name="com.selenium.Case.TC004_CreateCaseWithoutMandatoryFields"/>
+      <class name="com.selenium.Case.TC001_CreatNewCase"/>
+      <class name="com.selenium.account.TC004_VerifySorting"/>
+      <class name="com.selenium.account.TC003_DeleteAccount"/>
+      <class name="com.selenium.worktypegroup.CreateWorkTypeGroups"/>
+      <class name="com.selenium.worktype.EditWorkType"/>
+      <class name="com.selenium.worktypegroup.CreateWorkTypeGroupCheckMandatoryField"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
