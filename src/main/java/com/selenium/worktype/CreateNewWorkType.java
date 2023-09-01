@@ -14,7 +14,7 @@ public class CreateNewWorkType  extends BaseClass{
 	public void CreateWorkType()
 	{
 		driver.findElement(By.xpath("//span[.='App Launcher']/..")).click();
-		waitForClickalbe(By.xpath("//button[text()='View All']")).click();
+		waitForClickable(By.xpath("//button[text()='View All']")).click();
 		JavascriptExecutor jsDriver = (JavascriptExecutor)driver;
 		jsDriver.executeScript("arguments[0].click();", driver.findElement(By.xpath("//p[text()='Work Types']")));
 		driver.findElement(By.xpath("//div[@title='New']/parent::a")).click();

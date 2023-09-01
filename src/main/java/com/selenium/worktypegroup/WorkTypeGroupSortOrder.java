@@ -18,17 +18,17 @@ public class WorkTypeGroupSortOrder extends BaseClass{
 	public void verifyWorkTypeGroupSortOrder()
 	{
 		driver.findElement(By.xpath("//span[.='App Launcher']/..")).click();
-		waitForClickalbe(By.xpath("//button[text()='View All']")).click();
+		waitForClickable(By.xpath("//button[text()='View All']")).click();
 		JavascriptExecutor jsDriver = (JavascriptExecutor)driver;
 		jsDriver.executeScript("arguments[0].click();", driver.findElement(By.xpath("//p[text()='Work Type Groups']")));
 		jsDriver.executeScript("arguments[0].click();",driver.findElement(By.xpath("//span[.='Work Type Group Name']")));
-		waitForClickalbe(By.xpath("//a[@data-refid='recordId']"));
+		waitForClickable(By.xpath("//a[@data-refid='recordId']"));
 		List<WebElement> findElements = driver.findElements(By.xpath("//a[@data-refid='recordId']"));
-		List<String> workTypeGroups = new ArrayList<>();
+		List<String> workTypeGroups = new ArrayList<String>();
 		for (WebElement webElement : findElements) {
 			workTypeGroups.add(webElement.getText());
 		}
-		List<String> workTypeGroupSorted = new ArrayList<>(workTypeGroups);
+		List<String> workTypeGroupSorted = new ArrayList<String>(workTypeGroups);
 		Collections.sort(workTypeGroupSorted);
 		Assert.assertEquals(workTypeGroups, workTypeGroupSorted);
 	}
