@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.salesforce.genericmethods.BaseClass;
@@ -32,18 +33,18 @@ public class TC001_CreateAccount extends BaseClass{
 		accountname.sendKeys("Balaji Saravanan");
 
 		// Select Ownership as Public
-		driver.findElement(
-				By.xpath("(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[3]"))
-				.click();
+		WebElement Ownership = driver.findElement(By.xpath("(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[3]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", Ownership);
+		
 		driver.findElement(By.xpath("//span[text()='Public']")).click();
 		// Click save and verify Account name
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
      
 		// Click save and verify Account name
-		String toastmessage = driver
-				.findElement(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"))
+		String toastmessage = waitForClickable(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"))
 				.getText();
-		System.out.println("Account Creation Status:  " + toastmessage);	
+		Assert.assertTrue(toastmessage.contains("Balaji") && toastmessage.contains("Saravanan"), "Test case passed");
+	
 	}
 
 }
