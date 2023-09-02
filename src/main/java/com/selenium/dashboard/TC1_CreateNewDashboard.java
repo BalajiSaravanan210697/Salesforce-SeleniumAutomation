@@ -53,9 +53,10 @@ public class TC1_CreateNewDashboard extends BaseClass{
 		waitForClickable(By.xpath("//button[text()='Save']")).click();
 		driver.findElement(By.xpath("//button[text()='Done']")).click();
 		driver.switchTo().defaultContent();
+		WebElement Frame2 = driver.findElement(By.xpath("//iframe[@title='dashboard']"));
 
-		
-		String strDashboardMessage = (driver.findElement(By.xpath("(//div[@class=\"slds-form-element editTitle\"]//span)[1]")).getText().split("Edit"))[0];
+		driver.switchTo().frame(Frame2);
+		String strDashboardMessage = (driver.findElement(By.xpath("//span[text()=\"Dashboard\"]")).getText().split("Edit"))[0];
 		if(strDashboardMessage.contains("Salesforce Automation By Gayathri")) {
 			System.out.println("Dashboard "+strDashboardMessage+" has been created successfully");
 		}else {
