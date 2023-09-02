@@ -11,20 +11,22 @@ import com.salesforce.genericmethods.BaseClass;
 
 public class EditWorkTypeGroups extends BaseClass {
 
-	@Test(dependsOnMethods = "com.selenium.worktypegroup.CreateWorkTypeGroups.CreateWorkTypeGroup")
-	public void EditWorkTypeGroup()
+	@Test
+	public void EditWorkTypeGroup() throws InterruptedException
 	{
-		//driver.findElement(By.cssSelector("one-app-launcher-header[class]")).click();
-		//waitForClickalbe(By.xpath("//button[text()='View All']")).click();
+		driver.findElement(By.xpath("//span[.='App Launcher']/..")).click();
+		waitForClickable(By.xpath("//button[text()='View All']")).click();
 		JavascriptExecutor jsDriver = (JavascriptExecutor)driver;
-		//jsDriver.executeScript("arguments[0].click();", driver.findElement(By.xpath("//p[text()='Work Type Groups']")));
-		driver.findElement(By.xpath("//button[@aria-label='Search']")).click();
-		driver.findElement(By.xpath("(//input[contains(@placeholder,'Search')])[2]")).sendKeys("Salesforce Automation by Vijaykannan"+Keys.ENTER);
-		waitForClickable(By.xpath("//th[.='Salesforce Automation by Vijaykannan']/parent::tr//a[@class='rowActionsPlaceHolder slds-button slds-button--icon-x-small slds-button--icon-border-filled keyboardMode--trigger']")).click();
+		jsDriver.executeScript("arguments[0].click();", driver.findElement(By.xpath("//p[text()='Work Type Groups']")));
+		waitForClickable(By.xpath("//input[@aria-label='Search Recently Viewed list view.']")).click();
+		waitForClickable(By.xpath("//input[@aria-label='Search Recently Viewed list view.']")).sendKeys("Salesforce Automation by Vijaykannan"+Keys.ENTER);
+		Thread.sleep(1000);
+		jsDriver.executeScript("arguments[0].click();",waitForClickable(By.xpath("//a[.='Salesforce Automation by Vijaykannan']/ancestor::tr//span[@class='slds-icon_container slds-icon-utility-down']")));
 		jsDriver.executeScript("arguments[0].click();",waitForClickable(By.cssSelector("div.forceActionLink")));
 		driver.findElement(By.xpath("//label[text()='Work Type Group Name']/following::input")).clear();
 		driver.findElement(By.xpath("//label[text()='Work Type Group Name']/following::input")).sendKeys("Automation");
-		driver.findElement(By.xpath("//label[text()='Group Type']/..//button")).click();
+		waitForClickable(By.xpath("//label[text()='Group Type']/..//button/span")).click();
+		waitForClickable(By.xpath("//label[text()='Group Type']/..//button/span")).click();
 		driver.findElement(By.xpath("//span[text()='Capacity']")).click();
 		waitForClickable(By.xpath("//button[@name='SaveEdit']")).click();
 		Assert.assertEquals("Work Type Group \"Automation\" was saved.", driver.findElement(By.xpath("//div[contains(@id,'toastDescription')]")).getText());	
