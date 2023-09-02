@@ -29,8 +29,8 @@ import com.salesforce.genericmethods.BaseClass;
  */
 public class TC3_DeleteDashboard extends BaseClass{
 
-	@Test
-	public void TC3_DeleteDashboard() throws InterruptedException {
+	@Test//(dependsOnMethods = "com.selenium.dashboard.TC1_CreateNewDashboard.createNewDashboard")
+	public void deleteDashboard() throws InterruptedException {
 
 		waitForClickable(By.xpath("//div[@class=\"slds-icon-waffle\"]")).click();
 		waitForClickable(By.xpath("//button[text()=\"View All\"]")).click();
