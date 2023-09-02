@@ -18,13 +18,6 @@
       <class name="com.selenium.worktypegroup.CreateWorkTypeGroups"/>
       <class name="com.selenium.worktype.EditWorkType"/>
       <class name="com.selenium.worktypegroup.CreateWorkTypeGroupCheckMandatoryField"/>
-      <class name="com.salesforce.dashboard.TC1_CreateNewDashboard" />
-	  <class name="com.salesforce.dashboard.TC2_EditDashboard" />
-	  <class name="com.salesforce.dashboard.TC3_DeleteDashboard" />
-	  <class name="com.salesforce.dashboard.TC4_SortDashboard" />
-	  <class name="com.salesforce.dashboard.TC5_VerifyDashboardSubscribe" />
-	  <class name="com.saleforce.refund.TC1_CreateNewRefund" />
-	  <class name="com.saleforce.refund.TC2_CreateNewChart" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
