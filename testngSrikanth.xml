@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+	  <class name="com.selenium.opportunity.TC01_CreateNewOpportunity"/>
+	  <class name="com.selenium.opportunity.TC02_EditOpportunity"/>
+	  <class name="com.selenium.opportunity.TC03_DeleteOppurtunity"/>
+	  <class name="com.selenium.opportunity.TC04_CreateOpportunityWithoutMandatoryFields"/>	  
+	  <class name="com.selenium.opportunity.TC05_VerifyOpportunitiesSortOrderByCloseDate"/>
+	  <class name="com.selenium.task.TC01_CreateTask"/>
+	  <class name="com.selenium.task.TC02_EditTask"/>
+	  <class name="com.selenium.task.TC03_DeleteTask"/>
+	  <class name="com.selenium.task.TC04_CreateTaskWithoutMandatoryFields"/>
+	  <class name="com.selenium.serviceterritories.TC01_CreateServiceTerritories"/>
+      <class name="com.selenium.serviceterritories.TC02_EditServiceTerritories"/>      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
