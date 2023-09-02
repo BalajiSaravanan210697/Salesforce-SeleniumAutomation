@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-     <class name="com.salesforce.dashboard.TC1_CreateNewDashboard" />
+     <class name="com.selenium.dashboard.TC1_CreateNewDashboard" />
 			<class name="com.selenium.dashboard.TC2_EditDashboard" />
 			<class name="com.selenium.dashboard.TC3_DeleteDashboard" />
 			<class name="com.selenium.dashboard.TC4_SortDashboard" />
