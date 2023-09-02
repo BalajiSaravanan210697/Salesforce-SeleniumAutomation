@@ -4,12 +4,12 @@
   <test thread-count="5" name="Test">
     <classes>
      <class name="com.salesforce.dashboard.TC1_CreateNewDashboard" />
-			<class name="com.salesforce.dashboard.TC2_EditDashboard" />
-			<class name="com.salesforce.dashboard.TC3_DeleteDashboard" />
-			<class name="com.salesforce.dashboard.TC4_SortDashboard" />
-			<class name="com.salesforce.dashboard.TC5_VerifyDashboardSubscribe" />
-			<class name="com.saleforce.refund.TC1_CreateNewRefund" />
-			<class name="com.saleforce.refund.TC2_CreateNewChart" />
+			<class name="com.selenium.dashboard.TC2_EditDashboard" />
+			<class name="com.selenium.dashboard.TC3_DeleteDashboard" />
+			<class name="com.selenium.dashboard.TC4_SortDashboard" />
+			<class name="com.selenium.dashboard.TC5_VerifyDashboardSubscribe" />
+			<class name="com.selenium.refund.TC1_CreateNewRefund" />
+			<class name="com.selenium.refund.TC2_CreateNewChart" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
