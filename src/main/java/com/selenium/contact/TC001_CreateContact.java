@@ -1,4 +1,4 @@
-package com.selenium.createcontact;
+package com.selenium.contact;
 
 import java.time.Duration;
 
