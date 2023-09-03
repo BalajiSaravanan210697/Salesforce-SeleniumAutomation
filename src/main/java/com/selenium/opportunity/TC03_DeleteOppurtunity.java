@@ -15,16 +15,12 @@ public class TC03_DeleteOppurtunity extends BaseClass{
 
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
 		
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-		
-		viewAllElement.click();
-		
-		driver.findElement(By.xpath("//p[text()='Sales']")).click();
-		
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//p[text()='Sales']")))).click();
+
 		WebElement OppTabElement = driver.findElement(By.xpath("//a[@title='Opportunities']"));
 		
 		driver.executeScript("arguments[0].click()", OppTabElement);
@@ -35,17 +31,13 @@ public class TC03_DeleteOppurtunity extends BaseClass{
 		
 		driver.findElement(By.xpath("//div[contains(@class,'highlights-icon-container')]/img")).click();
 		Thread.sleep(1000);
-		WebElement actionDropdownElement = driver.findElement(By.xpath("//a[contains(@class,'rowActionsPlaceHolder')]"));
-		wait.until(ExpectedConditions.elementToBeClickable(actionDropdownElement));
-		actionDropdownElement.click();
 		
-		WebElement deleteDropdownElement = driver.findElement(By.xpath("//a[@title='Delete']"));
-		wait.until(ExpectedConditions.elementToBeClickable(deleteDropdownElement));		
-		deleteDropdownElement.click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[contains(@class,'rowActionsPlaceHolder')]")))).click();
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Delete']/..")));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[@title='Delete']")))).click();	
 		
-		driver.findElement(By.xpath("//span[text()='Delete']/..")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[text()='Delete']/..")))).click();	
+		
 		Thread.sleep(2000);
 		
 		String delConfirmText = driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();

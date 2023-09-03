@@ -15,13 +15,9 @@ public class TC01_CreateServiceTerritories extends BaseClass{
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
-				
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-		
-		viewAllElement.click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
 		
 		driver.findElement(By.xpath("//input[@placeholder='Search apps or items...']")).sendKeys("Service Territories");
 		
@@ -50,6 +46,8 @@ public class TC01_CreateServiceTerritories extends BaseClass{
 		driver.findElement(By.xpath("//label[text()='Zip/Postal Code']/..//input")).sendKeys("600078");
 		
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		
+		//wait.until(ExpectedConditions.attributeContains(driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")), "text()", "Srikanth"));
 		
 		String territoryConfirmationtext = driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();
 		
