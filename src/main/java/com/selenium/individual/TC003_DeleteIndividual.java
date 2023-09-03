@@ -18,14 +18,14 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC003_DeleteIndividual extends BaseClass{
    
 	@Test
-	public void CreateIndividual() {
+	public void deleteIndividual() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		driver.findElement(By.xpath("//button[text()='View All']")).click();
 		WebElement indivduals= driver.findElement(By.xpath("//p[text()='Individuals']"));
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", indivduals);
 		driver.findElement(By.xpath("//input[@placeholder='Search this list...']")).sendKeys("Kumars",Keys.ENTER);
-		waitForClickable(By.xpath("(//div[@class='forceVirtualActionMarker forceVirtualAction'])[1]"));
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("(//div[@class='forceVirtualActionMarker forceVirtualAction'])[1]")).click();
 		WebElement deletebutton= driver.findElement(By.xpath("//div[text()='Delete']"));
 		js.executeScript("arguments[0].click();", deletebutton);

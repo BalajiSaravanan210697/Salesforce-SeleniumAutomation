@@ -28,7 +28,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC4_SortDashboard extends BaseClass {
 	
 	@Test
-	public void TC4_SortDashboard() throws InterruptedException {
+	public void sortDashboard() throws InterruptedException {
 		
 		waitForClickable(By.xpath("//div[@class=\"slds-icon-waffle\"]")).click();
 		waitForClickable(By.xpath("//button[text()=\"View All\"]")).click();

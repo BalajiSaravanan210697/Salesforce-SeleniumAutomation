@@ -59,8 +59,6 @@ public class TC01_CreateNewOpportunity extends BaseClass{
 		
 		Assert.assertEquals(OppName, OppConfirmationText);		
 		
-		//driver.close();
-		
 	}
 
 }

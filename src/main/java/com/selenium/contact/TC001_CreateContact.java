@@ -1,4 +1,4 @@
-package com.selenium.createcontact;
+package com.selenium.contact;
 
 import java.time.Duration;
 
@@ -17,7 +17,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC001_CreateContact extends BaseClass{
    
 	@Test
-	public void CreateIndividual() {
+	public void createContact() {
 		WebElement addElement=driver.findElement(By.xpath("//div[contains(@class,'oneGlobalCreate')]//div//a/div"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(addElement));

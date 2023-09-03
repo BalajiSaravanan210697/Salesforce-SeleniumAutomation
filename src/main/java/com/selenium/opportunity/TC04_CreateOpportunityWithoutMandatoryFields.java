@@ -12,14 +12,18 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC04_CreateOpportunityWithoutMandatoryFields extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.opportunity.TC03_DeleteOppurtunity.deleteOppurtunity")
+	@Test
 	public void createOpportunityWithoutMandatoryFields() {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
 				
-		driver.findElement(By.xpath("//button[text()='View All']")).click();
+		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
+		
+		viewAllElement.click();
 		
 		driver.findElement(By.xpath("//p[text()='Sales']")).click();
 		

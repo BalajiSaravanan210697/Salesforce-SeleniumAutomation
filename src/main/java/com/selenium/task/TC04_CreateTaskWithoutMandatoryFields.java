@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC04_CreateTaskWithoutMandatoryFields extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.task.TC03_DeleteTask.deleteTask")
+	@Test
 	public void createTaskWithoutMandatoryFields() {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

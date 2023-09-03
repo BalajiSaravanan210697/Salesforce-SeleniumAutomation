@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseClass {
 	public ChromeDriver driver;
+	public WebDriverWait wait;
 	public Properties configProp;
 
 	@BeforeClass  
@@ -31,12 +32,13 @@ public class BaseClass {
 
 	@BeforeMethod
 	public void Setup() {
-
+		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		options.setBrowserVersion("116");
 		// set up browser
 		driver = new ChromeDriver(options);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		// Maximize the browser
 		driver.manage().window().maximize();
 		// Global time wait to handle all slowness over application
@@ -62,7 +64,6 @@ public class BaseClass {
 
 	public WebElement waitForClickable(By Locator)
 	{
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		return wait.until(ExpectedConditions.elementToBeClickable(Locator));
 	}
 

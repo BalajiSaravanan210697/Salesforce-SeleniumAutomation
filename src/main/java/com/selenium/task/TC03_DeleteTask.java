@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC03_DeleteTask extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.task.TC02_EditTask.editTask")
+	@Test
 	public void deleteTask() {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

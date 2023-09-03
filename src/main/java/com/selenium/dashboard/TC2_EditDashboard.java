@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.salesforce.genericmethods.BaseClass;
@@ -31,8 +32,8 @@ import com.salesforce.genericmethods.BaseClass;
 
  */
 public class TC2_EditDashboard extends BaseClass{
-	@Test
-	public void TC2_EditDashboard() throws InterruptedException {
+	@Test(dependsOnMethods = "com.selenium.dashboard.TC1_CreateNewDashboard.createNewDashboard")
+	public void editDashboard() throws InterruptedException {
 		
 		driver.findElement(By.xpath("//div[@class=\"slds-icon-waffle\"]")).click();
 		waitForClickable(By.xpath("//button[text()=\"View All\"]")).click();
@@ -40,11 +41,13 @@ public class TC2_EditDashboard extends BaseClass{
 		waitForClickable(By.xpath("//mark[text()='Dashboard']")).click();
 
 		waitForClickable(By.xpath("//div[@data-aura-class=\"forceSearchAssistant\"]")).click();
-		driver.findElement(By.xpath("//input[@placeholder=\"Search...\"]")).sendKeys("Salesforce Automation By Gayathri",Keys.ENTER);
-		waitForClickable(By.xpath("(//*[@data-aura-class=\"forceVirtualAction\"])[1]")).click();
-
+		driver.findElement(By.xpath("//input[@placeholder=\"Search recent dashboards...\"]")).sendKeys("Salesforce Automation By Gayathri",Keys.ENTER);
+		Thread.sleep(1000);
+		waitForClickable(By.xpath("(//lightning-primitive-cell-actions[@data-action-triggers=\"enter,space\"])[1]")).click();
+		
+		Thread.sleep(1000);
 		JavascriptExecutor js = (JavascriptExecutor)driver;		
-		WebElement account = driver.findElement(By.xpath("//a[@title=\"Edit\"]"));
+		WebElement account = driver.findElement(By.xpath("//a[@role=\"menuitem\"]//span[text()=\"Edit\"]"));
 		js.executeScript("arguments[0].click();", account);
 
 		
@@ -57,8 +60,13 @@ public class TC2_EditDashboard extends BaseClass{
 		driver.findElement(By.xpath("//*[@id=\"dashboardNameInput\"]")).sendKeys("Salesforce");
 		driver.findElement(By.xpath("//input[@id=\"dashboardDescriptionInput\"]")).sendKeys("Salesforce");
 		driver.findElement(By.xpath("//button[@id=\"submitBtn\"]")).click();
-		driver.findElement(By.xpath("//button[text()='Save']")).click();
-		driver.findElement(By.xpath("//button[@type=\"button\" and text()='Done']")).click();
 
+		waitForClickable(By.xpath("//button[text()='Save']")).click();
+		waitForClickable(By.xpath("//button[@type=\"button\" and text()='Done']")).click();
+		WebElement save = driver.findElement(By.xpath("(//button[text()='Save'])[2]"));
+		driver.executeScript("arguments[0].click();", save);
+		String text = driver.findElement(By.xpath("//p[text()='Salesforce']")).getText();
+		driver.switchTo().defaultContent();
+		Assert.assertEquals(text, "Salesforce");
 	}	
 }
