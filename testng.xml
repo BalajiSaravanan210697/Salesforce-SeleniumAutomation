@@ -5,7 +5,7 @@
    <packages>
       <package name="com.selenium.account"/>
       <package name="com.selenium.Case"/>
-      <package name="com.selenium.createcontact"/>
+      <package name="com.selenium.contact"/>
       <package name="com.selenium.dashboard"/>
       <package name="com.selenium.individual"/>
       <package name="com.selenium.opportunity"/>
