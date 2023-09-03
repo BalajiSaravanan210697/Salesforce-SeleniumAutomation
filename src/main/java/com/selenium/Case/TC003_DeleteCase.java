@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 public class TC003_DeleteCase extends BaseClass{
@@ -26,8 +27,9 @@ public class TC003_DeleteCase extends BaseClass{
 	    	driver.findElement(By.xpath("//div[@class='forceVirtualActionMarker forceVirtualAction']")).click();
 	    	driver.findElement(By.xpath("//a[@title='Delete']")).click();
 	    	driver.findElement(By.xpath("//span[text()='Delete']")).click();
-	    	String Deletecase = driver.findElement(By.xpath("//div[contains(@class,'forceToastMessage')]")).getText();
-	    	System.out.println("The Deleted Case:" +Deletecase);
+	    	String DeletecaseMessage = waitForClickable(By.xpath("//div[contains(@class,'forceToastMessage')]")).getText();
+	    	Assert.assertTrue(DeletecaseMessage.contains("deleted"), "Test case passed");
+	    	
 	    }
 
 	}

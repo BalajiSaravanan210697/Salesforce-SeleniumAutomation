@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 public class TC001_CreatNewCase extends BaseClass {
@@ -25,8 +26,8 @@ public class TC001_CreatNewCase extends BaseClass {
 		// Click on New Case
 		driver.findElement(By.xpath("//div[@title='New']")).click();
 		// Choose Contact Name from the dropdown
-		driver.findElement(By.xpath("(//label[text()='Contact Name'])/following-sibling::div")).click();
-		driver.findElement(By.xpath("//span[@title='Balaji S']")).click();
+		waitForClickable(By.xpath("(//label[text()='Contact Name'])/following-sibling::div")).sendKeys("Balaji S");
+		waitForClickable(By.xpath("//span[@title='Balaji S']")).click();
 		// Select Case origin as email
 		driver.findElement(By.xpath("(//label[text()='Case Origin'])/following-sibling::div")).click();
 
@@ -44,10 +45,10 @@ public class TC001_CreatNewCase extends BaseClass {
 		// Click 'Save' and verify the message
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
 		// New Case should be created successfully
-		String message = driver
-				.findElement(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"))
+		String toastmessage = waitForClickable(By.xpath("//span[@class='toastMessage slds-text-heading--small forceActionsText']"))
 				.getText();
-		System.out.println("Created case Reference Number is:" + message);
+		Assert.assertTrue(toastmessage.contains("created"), "Test case passed");
+		
 
 	}
 }

@@ -2,6 +2,7 @@ package com.selenium.account;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
@@ -19,7 +20,8 @@ public class TC003_DeleteAccount extends BaseClass {
 				WebElement account = driver.findElement(By.xpath("//span[text()='Accounts']"));
 				driver.executeScript("arguments[0].click();", account);
 				// Search for the Account Using the unique account name created by you
-				driver.findElement(By.xpath("//input[@name='Account-search-input']")).sendKeys("Balaji Saravanan");
+				WebElement searchname = driver.findElement(By.xpath("//input[@name='Account-search-input']"));
+				searchname.sendKeys("Balaji Saravanan",Keys.ENTER);
 				
 				waitForClickable(By.xpath("//a[@title='Show 3 more actions']")).click();
 				jsDriver.executeScript("arguments[0].click();",waitForClickable(By.xpath("//a[@title='Delete']")));
