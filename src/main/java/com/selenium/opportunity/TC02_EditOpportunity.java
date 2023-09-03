@@ -36,11 +36,8 @@ public class TC02_EditOpportunity extends BaseClass{
 		
 		driver.findElement(By.xpath("//input[@name='Opportunity-search-input']")).sendKeys(OppName,Keys.ENTER);
 		
-		//driver.findElement(By.xpath("//div[contains(@class,'highlights-icon-container')]/img")).click();
 		Thread.sleep(1000);
-		//WebElement actionDropdownElement = driver.findElement(By.xpath("//a[contains(@class,'rowActionsPlaceHolder')]"));
-		//wait.until(ExpectedConditions.elementToBeClickable(actionDropdownElement));
-		//actionDropdownElement.click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[contains(@class,'rowActionsPlaceHolder')]")))).click();
 		WebElement editDropdownElement = driver.findElement(By.xpath("//a[@title='Edit']"));
 		wait.until(ExpectedConditions.elementToBeClickable(editDropdownElement));		

@@ -45,7 +45,9 @@ public class TC02_EditServiceTerritories extends BaseClass{
 		
 		String ownerText = driver.findElement(By.xpath("//span[text()='Owner']/../following-sibling::div//span[@class='displayLabel']")).getText();
 		
-		System.out.println(ownerText);
+		
+		
+		
 	}
 	
 }
