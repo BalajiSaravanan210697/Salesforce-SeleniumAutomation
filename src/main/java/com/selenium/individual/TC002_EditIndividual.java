@@ -18,7 +18,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC002_EditIndividual extends BaseClass{
    
 	@Test
-	public void CreateIndividual() {
+	public void CreateIndividual() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		WebElement viewelement= driver.findElement(By.xpath("//button[text()='View All']"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -28,7 +28,7 @@ public class TC002_EditIndividual extends BaseClass{
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", indivduals);
 		driver.findElement(By.xpath("//input[@placeholder='Search this list...']")).sendKeys("Kumars",Keys.ENTER);
-		waitForClickable(By.xpath("(//div[@class='forceVirtualActionMarker forceVirtualAction'])[1]"));
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("(//div[@class='forceVirtualActionMarker forceVirtualAction'])[1]")).click();
 		WebElement editbutton = driver.findElement(By.xpath("//div[text()='Edit']"));
 		js.executeScript("arguments[0].click();", editbutton);
