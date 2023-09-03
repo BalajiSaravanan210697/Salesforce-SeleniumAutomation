@@ -15,7 +15,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC001_CreateIndividual extends BaseClass{
    
 	@Test
-	public void CreateIndividual() {
+	public void createIndividual() {
 		//Click on Toggle menu
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		//Click on view all button

@@ -19,7 +19,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC004_DeleteContact extends BaseClass{
    
 	@Test
-	public void CreateIndividual() throws InterruptedException {
+	public void deleteContact() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		WebElement viewelement= driver.findElement(By.xpath("//button[text()='View All']"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
