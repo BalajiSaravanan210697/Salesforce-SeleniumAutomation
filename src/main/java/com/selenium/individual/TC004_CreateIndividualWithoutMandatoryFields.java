@@ -18,7 +18,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC004_CreateIndividualWithoutMandatoryFields extends BaseClass{
    
 	@Test
-	public void CreateIndividual() {
+	public void createIndividualWithoutMandatoryFields() {
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		WebElement viewelement= driver.findElement(By.xpath("//button[text()='View All']"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

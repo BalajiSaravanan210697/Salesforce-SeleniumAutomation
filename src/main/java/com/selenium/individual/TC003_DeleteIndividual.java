@@ -18,7 +18,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC003_DeleteIndividual extends BaseClass{
    
 	@Test
-	public void CreateIndividual() throws InterruptedException {
+	public void deleteIndividual() throws InterruptedException {
 		driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
 		driver.findElement(By.xpath("//button[text()='View All']")).click();
 		WebElement indivduals= driver.findElement(By.xpath("//p[text()='Individuals']"));
