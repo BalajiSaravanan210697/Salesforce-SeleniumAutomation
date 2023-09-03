@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC02_EditTask extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.task.TC01_CreateTask.createTask")
+	@Test
 	public void editTask() {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC02_EditServiceTerritories extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.serviceterritories.TC01_CreateServiceTerritories.createServiceTerritories")
+	@Test
 	public void editServiceTerritories() throws InterruptedException {
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));

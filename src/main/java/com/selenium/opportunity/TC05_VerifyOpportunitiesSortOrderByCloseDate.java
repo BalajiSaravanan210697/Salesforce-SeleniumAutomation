@@ -13,14 +13,18 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC05_VerifyOpportunitiesSortOrderByCloseDate extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.opportunity.TC04_CreateOpportunityWithoutMandatoryFields.createOpportunityWithoutMandatoryFields")
-	public void verifyOpportunitiesSortOrderByCloseDate() {		
+	@Test
+	public void verifyOpportunitiesSortOrderByCloseDate() throws InterruptedException {		
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
-				
-		driver.findElement(By.xpath("//button[text()='View All']")).click();
+		
+		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
+		
+		viewAllElement.click();
 		
 		driver.findElement(By.xpath("//p[text()='Sales']")).click();
 		
@@ -53,6 +57,8 @@ public class TC05_VerifyOpportunitiesSortOrderByCloseDate extends BaseClass{
 		String closeDateOrderStatusText = sortingElementStatus.getText();
 		
 		Assert.assertEquals(closeDateOrderStatusText,"Sorted Ascending");
+		
+		Thread.sleep(1000);
 		
 		List<WebElement> claseDateAfterSort = driver.findElements(By.xpath("//span[@class='uiOutputDate']"));
 		

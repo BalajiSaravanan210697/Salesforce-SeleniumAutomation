@@ -10,14 +10,18 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 
 public class TC03_DeleteOppurtunity extends BaseClass{
-	@Test(dependsOnMethods = "com.selenium.opportunity.TC02_EditOpportunity.editOpportunity")
+	@Test
 	public void deleteOppurtunity() throws InterruptedException {		
 
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
 		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
 		
-		driver.findElement(By.xpath("//button[text()='View All']")).click();
+		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
+		
+		viewAllElement.click();
 		
 		driver.findElement(By.xpath("//p[text()='Sales']")).click();
 		
