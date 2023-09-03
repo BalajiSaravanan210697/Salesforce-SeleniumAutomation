@@ -2,22 +2,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.selenium.worktypegroup.WorkTypeGroupSortOrder"/>
-      <class name="com.selenium.account.TC002_EditAccounts"/>
-      <class name="com.selenium.Case.TC003_DeleteCase"/>
-      <class name="com.selenium.Case.TC002_EditCase"/>
-      <class name="com.selenium.account.TC001_CreateAccount"/>
-      <class name="com.selenium.worktype.CreateNewWorkType"/>
-      <class name="com.selenium.worktypegroup.DeleteWorkTypeGroups"/>
-      <class name="com.selenium.worktypegroup.EditWorkTypeGroups"/>
-      <class name="com.selenium.Case.TC004_CreateCaseWithoutMandatoryFields"/>
-      <class name="com.selenium.Case.TC001_CreatNewCase"/>
-      <class name="com.selenium.account.TC004_VerifySorting"/>
-      <class name="com.selenium.account.TC003_DeleteAccount"/>
-      <class name="com.selenium.worktypegroup.CreateWorkTypeGroups"/>
-      <class name="com.selenium.worktype.EditWorkType"/>
-      <class name="com.selenium.worktypegroup.CreateWorkTypeGroupCheckMandatoryField"/>
-    </classes>
+   <packages>
+      <package name="com.selenium.account"/>
+      <package name="com.selenium.Case"/>
+      <package name="com.selenium.createcontact"/>
+      <package name="com.selenium.dashboard"/>
+      <package name="com.selenium.individual"/>
+      <package name="com.selenium.opportunity"/>
+      <package name="com.selenium.refund"/>
+      <package name="com.selenium.serviceterritories"/>
+      <package name="com.selenium.task"/>
+      <package name="com.selenium.worktype"/>
+      <package name="com.selenium.worktypegroup"/>     
+    </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

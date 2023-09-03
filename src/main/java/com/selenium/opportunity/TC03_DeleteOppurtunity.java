@@ -42,11 +42,10 @@ public class TC03_DeleteOppurtunity extends BaseClass{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Delete']/..")));
 		
 		driver.findElement(By.xpath("//span[text()='Delete']/..")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		String delConfirmText = driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();
-		System.out.println(delConfirmText);
-		System.out.println(OppName);
+	
 		Assert.assertTrue(delConfirmText.contains(OppName));		
 		
 	}
