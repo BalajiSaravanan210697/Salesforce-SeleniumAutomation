@@ -13,7 +13,7 @@ import com.salesforce.genericmethods.BaseClass;
 public class TC001_CreatNewCase extends BaseClass {
 
 	@Test
-	public void CreateNewCase() {
+	public void CreateNewCase() throws InterruptedException {
 		// toggle menu clicked based on the class name
 		driver.findElement(By.className("slds-icon-waffle")).click();
 		// clicking the view All button from the drop down
@@ -26,8 +26,11 @@ public class TC001_CreatNewCase extends BaseClass {
 		// Click on New Case
 		driver.findElement(By.xpath("//div[@title='New']")).click();
 		// Choose Contact Name from the dropdown
-		waitForClickable(By.xpath("(//label[text()='Contact Name'])/following-sibling::div")).sendKeys("Balaji S");
-		waitForClickable(By.xpath("//span[@title='Balaji S']")).click();
+		WebElement ContactSearch  = driver.findElement(By.xpath("//input[@class='slds-combobox__input slds-input']"));
+		ContactSearch.click();
+		ContactSearch.sendKeys("Balaji S");
+		Thread.sleep(1000);
+		waitForClickable(By.xpath("//lightning-base-combobox-formatted-text[@title='Balaji S']")).click();
 		// Select Case origin as email
 		driver.findElement(By.xpath("(//label[text()='Case Origin'])/following-sibling::div")).click();
 
