@@ -18,15 +18,11 @@ public class TC05_VerifyOpportunitiesSortOrderByCloseDate extends BaseClass{
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
 		
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-		
-		viewAllElement.click();
-		
-		driver.findElement(By.xpath("//p[text()='Sales']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//p[text()='Sales']")))).click();
 		
 		WebElement OppTabElement = driver.findElement(By.xpath("//a[@title='Opportunities']"));
 		

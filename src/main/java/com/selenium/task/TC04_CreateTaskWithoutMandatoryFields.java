@@ -15,13 +15,9 @@ public class TC04_CreateTaskWithoutMandatoryFields extends BaseClass{
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
-				
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-		
-		viewAllElement.click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
 		
 		driver.findElement(By.xpath("//input[@placeholder='Search apps or items...']")).sendKeys("tasks");
 		

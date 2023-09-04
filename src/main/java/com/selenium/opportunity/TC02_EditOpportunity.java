@@ -19,15 +19,11 @@ public class TC02_EditOpportunity extends BaseClass {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
-
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
-
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-
-		viewAllElement.click();
-
-		driver.findElement(By.xpath("//p[text()='Sales']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//p[text()='Sales']")))).click();
 
 		WebElement OppTabElement = driver.findElement(By.xpath("//a[@title='Opportunities']"));
 
@@ -42,10 +38,9 @@ public class TC02_EditOpportunity extends BaseClass {
 		wait.until(ExpectedConditions
 				.elementToBeClickable(driver.findElement(By.xpath("//a[contains(@class,'rowActionsPlaceHolder')]"))))
 				.click();
-		WebElement editDropdownElement = driver.findElement(By.xpath("//a[@title='Edit']"));
-		wait.until(ExpectedConditions.elementToBeClickable(editDropdownElement));
-		editDropdownElement.click();
 
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//a[@title='Edit']")))).click();
+		
 		Date clearDate = new Date();
 
 		int date = clearDate.getDate();

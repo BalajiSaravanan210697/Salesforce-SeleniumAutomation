@@ -11,17 +11,13 @@ import com.salesforce.genericmethods.BaseClass;
 
 public class TC01_CreateTask extends BaseClass{
 	@Test
-	public void createTask() {		
+	public void createTask() throws InterruptedException {		
 		
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		
-		driver.findElement(By.xpath("//div[contains(@class,'appLauncher')]")).click();
-				
-		WebElement viewAllElement = driver.findElement(By.xpath("//button[text()='View All']"));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[contains(@class,'salesforceIdentityAppLauncherHeader')]")))).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(viewAllElement));
-		
-		viewAllElement.click();
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='View All']")))).click();
 		
 		driver.findElement(By.xpath("//input[@placeholder='Search apps or items...']")).sendKeys("tasks");
 		
@@ -47,6 +43,7 @@ public class TC01_CreateTask extends BaseClass{
 		
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		
+		Thread.sleep(1000);
 		String taskCreationConfirmation = driver.findElement(By.xpath("//span[contains(@class,'toastMessage')]")).getText();
 		
 		Assert.assertTrue(taskCreationConfirmation.contains("Bootcamp"));
