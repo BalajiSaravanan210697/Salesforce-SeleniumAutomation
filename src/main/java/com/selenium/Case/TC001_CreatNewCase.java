@@ -33,7 +33,6 @@ public class TC001_CreatNewCase extends BaseClass {
 		waitForClickable(By.xpath("//lightning-base-combobox-formatted-text[@title='Balaji S']")).click();
 		// Select Case origin as email
 		driver.findElement(By.xpath("(//label[text()='Case Origin'])/following-sibling::div")).click();
-
 		driver.findElement(By.xpath("//span[text()='Email']")).click();
 		// Select status as Escalated
 		driver.findElement(By.xpath("(//label[text()='Status'])/following-sibling::div")).click();

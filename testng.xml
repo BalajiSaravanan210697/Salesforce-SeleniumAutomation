@@ -2,18 +2,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-    <packages>
-      <package name="com.selenium.task"/>
-      <package name="com.selenium.individual"/>
-      <package name="com.selenium.opportunity"/>
-      <package name="com.selenium.refund"/>
-      <package name="com.selenium.Case"/>
-      <package name="com.selenium.account"/>
-      <package name="com.selenium.serviceterritories"/>
-      <package name="com.selenium.contact"/>
-      <package name="com.selenium.dashboard"/>
-      <package name="com.selenium.worktype"/>
-      <package name="com.selenium.worktypegroup"/>
-    </packages>
+    <classes>
+      <class name="com.selenium.Case.TC003_DeleteCase"/>
+      <class name="com.selenium.Case.TC004_CreateCaseWithoutMandatoryFields"/>
+      <class name="com.selenium.Case.TC001_CreatNewCase"/>
+    </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
