@@ -7,13 +7,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class SeleniumAssessment {
 
 	
 
-	
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public  void main() throws InterruptedException {
 
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -43,8 +44,8 @@ public class SeleniumAssessment {
         Thread.sleep(1000);
         String text= driver.findElement(By.xpath("//mark")).getText();
         System.out.println(text);
-        Assert.assertTrue(text.contains("Balaji"));
-	
+        Assert.assertEquals("Story Created By Balaji S",text);
+    	driver.close();
 
 	}
 
