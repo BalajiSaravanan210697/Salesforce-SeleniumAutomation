@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
 public class TC004_VerifySorting extends BaseClass {
 	@Test
-	public void VerifySorting() {
+	public void VerifySorting() throws InterruptedException {
 		       // toggle menu clicked based on the class name
 				driver.findElement(By.className("slds-icon-waffle")).click();
 				// clicking the view All button from the drop down
@@ -16,5 +16,6 @@ public class TC004_VerifySorting extends BaseClass {
 				// Click on Accounts tab
 				WebElement account = driver.findElement(By.xpath("//span[text()='Accounts']"));
 				driver.executeScript("arguments[0].click();", account);
+				Thread.sleep(1000);
 	}
 }

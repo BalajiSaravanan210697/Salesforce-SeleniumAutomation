@@ -9,10 +9,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
-public class TC003_DeleteCase extends BaseClass{
-    @Test
+
+public class TC003_DeleteCase extends BaseClass {
+	@Test
 	public void DeleteCase() {
-		
+
 		// toggle menu clicked based on the class name
 		driver.findElement(By.className("slds-icon-waffle")).click();
 		// clicking the view All button from the drop down
@@ -22,15 +23,16 @@ public class TC003_DeleteCase extends BaseClass{
 		// Click on Global Actions SVG icon
 		WebElement Cases = driver.findElement(By.xpath("//span[text()='Cases']"));
 		driver.executeScript("arguments[0].click();", Cases);
-	    String caseOwneralias =  driver.findElement(By.xpath("//span[@class='slds-truncate uiOutputText']")).getText();
-	    if(caseOwneralias.equals("BSara")) {
-	    	driver.findElement(By.xpath("//div[@class='forceVirtualActionMarker forceVirtualAction']")).click();
-	    	driver.findElement(By.xpath("//a[@title='Delete']")).click();
-	    	driver.findElement(By.xpath("//span[text()='Delete']")).click();
-	    	String DeletecaseMessage = waitForClickable(By.xpath("//div[contains(@class,'forceToastMessage')]")).getText();
-	    	Assert.assertTrue(DeletecaseMessage.contains("deleted"), "Test case passed");
-	    	
-	    }
+		String caseOwneralias = driver.findElement(By.xpath("//span[@class='slds-truncate uiOutputText']")).getText();
+		if (caseOwneralias.equals("BSara")) {
+			driver.findElement(By.xpath("//div[@class='forceVirtualActionMarker forceVirtualAction']")).click();
+			driver.findElement(By.xpath("//a[@title='Delete']")).click();
+			driver.findElement(By.xpath("//span[text()='Delete']")).click();
+			String DeletecaseMessage = waitForClickable(By.xpath("//div[contains(@class,'forceToastMessage')]"))
+					.getText();
+			Assert.assertTrue(DeletecaseMessage.contains("deleted"), "Test case passed");
+
+		}
 
 	}
 

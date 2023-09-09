@@ -26,33 +26,34 @@ public class TC004_CreateCaseWithoutMandatoryFields extends BaseClass {
 		driver.executeScript("arguments[0].click();", Cases);
 		// Click on New Case
 		driver.findElement(By.xpath("//div[@title='New']")).click();
-		
+
 		// Choose Contact Name from the dropdown
 		WebElement ContactSearch = driver.findElement(By.xpath("//input[@class='slds-combobox__input slds-input']"));
 		ContactSearch.click();
 		ContactSearch.sendKeys("Balaji S");
 		Thread.sleep(1000);
 		waitForClickable(By.xpath("//lightning-base-combobox-formatted-text[@title='Balaji S']")).click();
-		
+
 		// Select status as None
 		driver.findElement(By.xpath("(//label[text()='Status'])/following-sibling::div")).click();
 		driver.findElement(By.xpath("//span[@title='--None--']")).click();
 
-		//  Enter Subject as 'Testing' and description as 'Automation testing'
+		// Enter Subject as 'Testing' and description as 'Automation testing'
 		WebElement subject = driver.findElement(By.xpath("(//label[text()='Subject'])/following-sibling::div/input"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", subject);
 		subject.sendKeys("Testing");
 		driver.findElement(By.xpath("(//label[text()='Description'])/following-sibling::div/textarea"))
 				.sendKeys("Automation testing");
-		// Click 'Save' 
+		// Click 'Save'
 		driver.findElement(By.xpath("//button[	text()='Save']")).click();
-		
+
 		// Get the text of Error message Displayed and Verify the message
 		String snagmessage = driver.findElement(By.xpath("//h2[@title='We hit a snag.']")).getText();
 		String reviewmessage = driver.findElement(By.xpath("//div[@class='genericNotification']")).getText();
-		Assert.assertTrue(snagmessage.contains("We hit a snag") &&reviewmessage.contains("Review the following fields"), "Test case passed");
-		
+		Assert.assertTrue(
+				snagmessage.contains("We hit a snag") && reviewmessage.contains("Review the following fields"),
+				"Test case passed");
 
 	}
 

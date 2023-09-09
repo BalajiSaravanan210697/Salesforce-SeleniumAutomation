@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.salesforce.genericmethods.BaseClass;
+
 public class TC002_EditCase extends BaseClass {
 	@Test
 	public void EditCase() throws InterruptedException {
@@ -28,11 +29,11 @@ public class TC002_EditCase extends BaseClass {
 			driver.findElement(By.xpath("//div[@class='forceVirtualActionMarker forceVirtualAction']")).click();
 			driver.findElement(By.xpath("//a[@title='Edit']")).click();
 		}
-		
-        // Update Status as Working
+
+		// Update Status as Working
 		driver.findElement(By.xpath("(//label[text()='Status'])/following-sibling::div")).click();
 		driver.findElement(By.xpath("//span[@title='Working']")).click();
-		//setTimeout(function(){debugger;}, 5000)
+		// setTimeout(function(){debugger;}, 5000)
 		// Update Priority to low
 		driver.findElement(By.xpath("(//label[text()='Priority'])/following-sibling::div")).click();
 		driver.findElement(By.xpath("//span[text()='Low']")).click();
@@ -40,13 +41,16 @@ public class TC002_EditCase extends BaseClass {
 		driver.findElement(By.xpath("(//label[text()='Case Origin'])/following-sibling::div")).click();
 		driver.findElement(By.xpath("//span[text()='Phone']")).click();
 		// Update SLA violation to No
-		WebElement SLAViolation = driver.findElement(By.xpath("(//label[text()='SLA Violation'])/following-sibling::div"));
+		WebElement SLAViolation = driver
+				.findElement(By.xpath("(//label[text()='SLA Violation'])/following-sibling::div"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", SLAViolation);
 		driver.findElement(By.xpath("//span[text()='No']")).click();
 		// Click on Save and Verify Status as Working
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
-		String status = driver.findElement(By.xpath("(//span[@class='slds-grid slds-grid--align-spread forceInlineEditCell'])[3]")).getText();
+		String status = driver
+				.findElement(By.xpath("(//span[@class='slds-grid slds-grid--align-spread forceInlineEditCell'])[3]"))
+				.getText();
 		Assert.assertTrue(status.contains("Working"), "Test case passed");
 	}
 
